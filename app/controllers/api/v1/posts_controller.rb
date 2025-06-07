@@ -2,7 +2,7 @@ module Api
   module V1
     class PostsController < Api::BaseController
       def index
-        render json: Post.all
+        render json: Post.order(updated_at: :desc)
       end
 
       def create
