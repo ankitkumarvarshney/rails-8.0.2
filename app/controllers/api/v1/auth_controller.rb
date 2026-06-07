@@ -13,7 +13,7 @@ module Api
 
         if user&.authenticate(params[:password])
           token = JsonWebToken.encode(user_id: user.id)
-          render json: { token: token, user: user.as_json(only: [:id, :email]) }, status: :created
+          render json: { token: token, user: user.as_json(only: [ :id, :email ]) }, status: :created
         else
           render json: { error: "Invalid email or password" }, status: :unauthorized
         end
