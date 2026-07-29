@@ -13,7 +13,6 @@ module Api
       render json: { error: e.message }, status: :not_found
     end
 
-
     private
 
     def authenticate_request
