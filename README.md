@@ -1,24 +1,6 @@
-# README
+This App is live and can be use/accessible by https://react-19-1.onrender.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For front-end see this repo - https://github.com/ankitkumarvarshney/react-19.1
