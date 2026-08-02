@@ -1,0 +1,33 @@
+databases:
+  - name: rails-8-0-2-db
+    databaseName: rails_8_0_2_db
+    user: rails_8_0_2_db_user
+    plan: free
+
+services:
+  - type: web
+    name: rails-8-0-2
+    runtime: ruby
+    plan: free
+    healthCheckPath: /up
+    buildCommand: "bundle install && bundle exec rails db:prepare && bundle exec rails assets:precompile"
+    startCommand: "bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000} --environment=production"
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: APP_HOST
+        value: rails-8-0-2.onrender.com
+      - key: WEB_CONCURRENCY
+        value: 2
+      - key: RAILS_LOG_LEVEL
+        value: info
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rails-8-0-2-db
+          property: connectionString
